@@ -110,23 +110,23 @@ const Layout = ({ children, title }) => {
           {title ? ' - ' + title : ''}
         </title>
         <meta property="og:title" content={me.fancy} />
-        <meta property="og:description" content="Personal Website" />
+        <meta property="og:description" content="Mani's Super Cool Site™" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://itsrainingmani.dev" />
         <meta
           property="og:image"
-          content="https://prestonrichey.com/social-meta.png"
+          content="https://itsrainingmani.dev/social-meta.png"
         />
         <meta
           property="og:image:secure_url"
-          content="https://prestonrichey.com/social-meta.png"
+          content="https://itsrainingmani.dev/social-meta.png"
         />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={me.name} />
-        <meta name="twitter:description" content="Personal Website" />
+        <meta name="twitter:title" content={me.fancy} />
+        <meta name="twitter:description" content="Mani's Super Cool Site™" />
         <meta
           name="twitter:image"
-          content="https://prestonrichey.com/social-meta.png"
+          content="https://itsrainingmani.dev/social-meta.png"
         />
         <meta name="twitter:creator" content="@itsrainingmani" />
       </Helmet>
