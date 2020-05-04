@@ -17,6 +17,14 @@ const StyledPostDate = styled.time`
 
 const PostTemplate = ({ data }) => {
   const { frontmatter, code } = data.mdx;
+  const randColors = [
+    '#ff124f', // Bright red
+    '#ff00a0', // Bright pink
+    '#fe75fe', // Light pink
+    '#1afe49', // Bright Green
+    '#73fffe' // Light corral
+  ];
+  const curColor = randColors[Math.floor(Math.random() * randColors.length)];
 
   return (
     <Layout>
@@ -39,7 +47,11 @@ const PostTemplate = ({ data }) => {
           <meta name="twitter:description" content={frontmatter.excerpt} />
         </Helmet>
       )}
-      <h1>{frontmatter.title}</h1>
+      <h1
+        style={{ textShadow: '2px 4px 0px ' + curColor, fontStyle: 'italic' }}
+      >
+        {frontmatter.title}
+      </h1>
       <MDXRenderer>{code.body}</MDXRenderer>
       <StyledPostDate>{frontmatter.date}</StyledPostDate>
     </Layout>
