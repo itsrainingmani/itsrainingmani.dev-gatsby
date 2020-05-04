@@ -75,7 +75,7 @@ const TitleLink = styled(Link)`
     }
   }
 
-  animation: example 4s ease 2s infinite forwards;
+  animation: example 4s ease 2s infinite reverse;
 
   ${'' /* animation-name: example;
   animation-duration: 4s;
