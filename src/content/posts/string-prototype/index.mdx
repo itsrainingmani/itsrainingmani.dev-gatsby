@@ -1,0 +1,131 @@
+---
+title: "Extending the String Prototype in JS & TS"
+date: "2019-09-24"
+publish: true
+---
+
+import XA from 'components/ExternalAnchor';
+import NormalImage from 'components/NormalImage';
+import federico from './federico.jpg';
+
+<section class="blog-section">
+
+<NormalImage src={federico} caption="by Federico Beccari" />
+
+## What is an Object Prototype
+
+From <XA href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">MDN</XA>
+
+*JavaScript is often described as a prototype-based language — to provide inheritance, objects can have a prototype object, which acts as a template object that it inherits methods and properties from. An object's prototype object may also have a prototype object, which it inherits methods and properties from, and so on. This is often referred to as a prototype chain, and explains why different objects have properties and methods defined on other objects available to them.*
+
+Simply put, every object inherits features from the object above it in the prototype chain. This also allows us to extend the functionality of an object by adding to their prototypes.
+
+## Extending the String Prototype in JavaScript
+
+Let's say we want to pad a string on both sides by a specified character. In python, we would just call the `center()` method on the string with the final length and optionally, the character to pad with. However, JS does not natively have a method like this on the String Prototype. The closest methods defined are `String.prototype.padEnd()` and `String.prototype.padStart()`.
+
+We could simply write a function that does this:
+
+```javascript
+function padStartEnd(inputString, maxLength, fillString) {
+    fillString = fillString || " ";
+    return inputString.length >= maxLength ? inputString : inputString.padStart((inputString.length + maxLength) / 2,
+    fillString).padEnd(maxLength, fillString);
+}
+```
+
+We can call this function on any string like this:
+
+```javascript
+let stringToPad = "help";
+let paddedString = padStartEnd(stringToPad, 10, '+');
+console.log(paddedString);
+
+// Output
+"+++help+++"
+```
+
+Hooray! We now have a small function that can pad the start and end of a given string.
+
+However it is a little annoying that in order to perform this relatively basic operation on a string, we have to supply the string itself as an argument. It would be more syntactically elegant if we could call this function on a String object, in the vein of `String.prototype.padEnd()` and `String.prototype.padStart()`.
+
+We are going to do this by extending `String.prototype`.
+
+> ⚠️ **Warning**: The following examples are meant to be purely instructional. Please be careful in extending native types, especially if your code is going to be used by others since this can lead to unexpected behavior. It is recommended to prefix the name of your extension methods with some identifier so that a potential user can differentiate between your code and methods defined natively on the type.
+
+Without further ado, here's how we can call padStartEnd on a string:
+
+```javascript
+function padStartEnd(maxLength, fillString) {
+    fillString = fillString || " ";
+    return this.length >= maxLength ? this.toString() : inputString.padStart((inputString.length + maxLength) / 2,
+    fillString).padEnd(maxLength, fillString);
+}
+String.prototype.center = padStartEnd;
+```
+
+As you can see we've made a few modifications to the original function. We have removed the `inputString` parameter since we are going to be calling the function on a string object which can be accessed via `this` within the function.
+
+The last line assigns the function `padStartEnd()` to the property `center` on the `String.prototype`.
+
+We can now call this function on a string like this:
+
+```javascript
+console.log("help".center(10, "+"));
+
+// Output
+"+++help+++"
+```
+
+Et Voila! We have successfully extended `String.Prototype`!
+We can additionally check if the extension was successful by using `hasOwnProperty()`.
+
+```javascript
+console.log(String.prototype.hasOwnProperty("center"));
+// expected output: true
+```
+
+This indicates that the `String.prototype` object has the specified property.
+
+## This but in TypeScript
+
+Now that we have a working implementation of an extended `String.prototype` in JavaScript, let's see how we can do the same thing in TypeScript.
+
+We're going to be creating a new file called `string.extensions.ts` to hold our interface definition and implementation. (You can do this in the same file as your main code, but it's a little neater to move this to a different file and import it from your code).
+
+Within this `string.extensions.ts`, add the following code:
+
+```typescript
+// string.extensions.ts
+
+interface String {
+    center(maxLength: number, fillString?: string): string;
+}
+
+String.prototype.center = function (maxLength: number, fillString?: string): string {
+    fillString = fillString || " "; // If fillString is undefined, use space as default
+    return this.length >= maxLength ? this.toString() : this.padStart((this.length + maxLength) / 2, fillString).padEnd(maxLength, fillString);
+}
+```
+
+Here we are augmenting the type of String by declaring a new interface `String` and adding the function `center` to this interface.
+When TypeScript runs into two interfaces of the same type, it will try to merge the definitions, and if this doesn't work, raise an error.
+
+So adding `center` to our `String` interface augments the original `String` type to include the `center` method.
+
+Now all that remains is to import this file in your source code, and you can use `String.prototype.center`!
+
+```typescript
+import './string.extensions' // depends on where the file is relative to your source code
+
+let stringToPad: string = "help";
+console.log(stringToPad.center(10, "+"));
+
+// Output
+"+++help+++";
+```
+
+And there we have it. A simple way of extending `String.Prototype` in JavaScript and TypeScript. You can use the methods outlined in this post to extend/augment the prototypes of other native types as well.
+
+If you found this post to be helpful, or want to report any errors, hit me up on the <XA href="https://twitter.com/itsrainingmani">Blue Site</XA>.
+</section>
