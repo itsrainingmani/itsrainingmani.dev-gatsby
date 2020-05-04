@@ -54,7 +54,7 @@ const StyledTitle = styled.h1`
 // '#73fffe'; // Light corral
 
 const TitleLink = styled(Link)`
-  @keyframes example {
+  @keyframes rainbow {
     0% {
       text-shadow: 2px 4px 0px #ff0000;
     }
@@ -75,7 +75,7 @@ const TitleLink = styled(Link)`
     }
   }
 
-  animation: example 4s ease 2s infinite reverse;
+  animation: rainbow 4s ease 2s infinite reverse;
 
   ${'' /* animation-name: example;
   animation-duration: 4s;
