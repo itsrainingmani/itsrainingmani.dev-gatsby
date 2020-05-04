@@ -1,5 +1,5 @@
 ---
-title: 'lsys'
+title: 'Lsys'
 lede: 'L-Systems Fractal Generator'
 date: '2020'
 repo: 'https://github.com/itsrainingmani/lsys'
@@ -10,9 +10,34 @@ lang: 'Svelte, JS'
 ---
 
 import XA from 'components/ExternalAnchor.js';
+import ZoomImage from 'components/ZoomImage.js';
+import lsysgrid from './lsysgrid.png';
+import lsyssnowflake from './lsyssnowflake.png';
+import lsysweird from './lsysweird.png';
 
-**_lsys_** is an interactive Fractal Generator.
+<section class="blog-section">
 
-I came upon a wonderful article on generating fractals using a set of rules known as the Lindenmayer Systems (L-Systems) and after reading it, I was inspired to make a website that would allow people to generate their own Fractals.
+**_Lsys_** is an interactive Fractal Generator.
+I came upon a wonderful <XA href="https://nb.paulbutler.org/l-systems/">article</XA> on generating fractals using a set of rules known as the Lindenmayer Systems (L-Systems) and after reading it, I was inspired to make a website that would allow people to generate their own Fractals.
+Some fractals you can generate using **_Lsys_**:
 
-This website was built using <XA href="https://svelte.dev">Svelte</XA>.
+- <XA href="https://fractals.now.sh/#TCxMOi1SRitMRkwrRlItLFI6K0xGLVJGUi1GTCt8NXw5MHwjZmYzZTAwfDAuMnwxLjc2fC0zMS44NDAwMDAwMDAwMDAwMDN8LTMwLjI0MDAwMDAwMDAwMDAwNg==">
+    Grids
+  </XA>
+  <div class="blog-inset">
+    <ZoomImage src={lsysgrid} caption="Grid" />
+  </div>
+
+- <XA href="https://fractals.now.sh/#RixGOitGK0YtLUYrRnw1fDYwfCMwMGM4MDZ8MC4yfDEuMjF8LTAuMTYwMDAwMDAwMDAwMDA2MzZ8MS40Mzk5OTk5OTk5OTk5OTE1">Snowflakes</XA>
+<div class="blog-inset">
+    <ZoomImage src={lsyssnowflake} caption="Snowflake" />
+  </div>
+
+- <XA href="https://fractals.now.sh/#RixGOkYrRi1bLUZGK11GK3w2fDYwfCNkNjQ3ZmZ8MC41fDIuMzF8LTI4Ljc0fDQuNTk5OTk5OTk5OTk5OTk4">Angular</XA>
+<div class="blog-inset">
+    <ZoomImage src={lsysweird} caption="Angles" />
+  </div>
+
+Built using <XA href="https://svelte.dev">Svelte</XA>.
+
+</section>
