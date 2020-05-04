@@ -10,7 +10,13 @@ import ProjectLinks from './../components/ProjectLinks';
 const ProjectTemplate = ({ data }) => {
   const { frontmatter, code } = data.mdx;
 
-  const randColors = ['#ff124f', '#ff00a0', '#fe75fe', '#7a04eb', '#73fffe'];
+  const randColors = [
+    '#ff124f', // Bright red
+    '#ff00a0', // Bright pink
+    '#fe75fe', // Light pink
+    '#1afe49', // Bright Green
+    '#73fffe'  // Light corral
+  ];
   const curColor = randColors[Math.floor(Math.random() * randColors.length)];
 
   return (

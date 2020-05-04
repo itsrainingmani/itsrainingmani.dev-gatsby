@@ -47,7 +47,41 @@ const StyledTitle = styled.h1`
   }
 `;
 
+// '#ff124f', // Bright red
+// '#ff00a0', // Bright pink
+// '#fe75fe', // Light pink
+// '#1afe49', // Bright Green
+// '#73fffe'; // Light corral
+
 const TitleLink = styled(Link)`
+  @keyframes example {
+    0% {
+      text-shadow: 2px 4px 0px #ff0000;
+    }
+    20% {
+      text-shadow: 2px 4px 0px #ff00a0;
+    }
+    40% {
+      text-shadow: 2px 4px 0px #fe75fe;
+    }
+    60% {
+      text-shadow: 2px 4px 0px #1afe49;
+    }
+    80% {
+      text-shadow: 2px 4px 0px #73fffe;
+    }
+    100% {
+      text-shadow: 2px 4px 0px #ff0000;
+    }
+  }
+
+  animation: example 4s ease 2s infinite forwards;
+
+  ${'' /* animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards; */}
+
   text-transform: lowercase;
   color: #000;
   text-decoration: none;
