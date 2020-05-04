@@ -9,9 +9,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          {
-            resolve: 'gatsby-remark-reading-time'
-          },
           // {
           //   resolve: 'gatsby-remark-component',
           //   options: { components: ['zoom-image', 'hidden', 'countup'] }
@@ -67,20 +64,6 @@ module.exports = {
         path: `${__dirname}/src/content/projects`
       }
     },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'posts',
-    //     path: `${__dirname}/src/pages/blog`
-    //   }
-    // },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'projects',
-    //     path: `${__dirname}/src/pages/projects`
-    //   }
-    // },
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
