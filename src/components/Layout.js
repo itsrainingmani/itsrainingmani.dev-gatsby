@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
 // import Dimensions from 'react-dimensions';
@@ -53,34 +53,29 @@ const StyledTitle = styled.h1`
 // '#1afe49', // Bright Green
 // '#73fffe'; // Light corral
 
-const TitleLink = styled(Link)`
-  @keyframes rainbow {
-    0% {
-      text-shadow: 2px 4px 0px #ff0000;
-    }
-    20% {
-      text-shadow: 2px 4px 0px #ff00a0;
-    }
-    40% {
-      text-shadow: 2px 4px 0px #fe75fe;
-    }
-    60% {
-      text-shadow: 2px 4px 0px #1afe49;
-    }
-    80% {
-      text-shadow: 2px 4px 0px #73fffe;
-    }
-    100% {
-      text-shadow: 2px 4px 0px #ff0000;
-    }
+export const rainbowAnimation = y => keyframes`
+  0% {
+    text-shadow: 2px ${y}px 0px #ff0000;
   }
+  20% {
+    text-shadow: 2px ${y}px 0px #ff00a0;
+  }
+  40% {
+    text-shadow: 2px ${y}px 0px #fe75fe;
+  }
+  60% {
+    text-shadow: 2px ${y}px 0px #1afe49;
+  }
+  80% {
+    text-shadow: 2px ${y}px 0px #73fffe;
+  }
+  100% {
+    text-shadow: 2px ${y}px 0px #ff0000;
+  }
+`;
 
-  animation: rainbow 4s ease 2s infinite reverse;
-
-  ${'' /* animation-name: example;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards; */}
+const TitleLink = styled(Link)`
+  animation: ${rainbowAnimation(4)} 4s ease 2s infinite reverse;
 
   text-transform: lowercase;
   color: #000;
