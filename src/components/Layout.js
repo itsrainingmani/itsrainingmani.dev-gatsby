@@ -4,6 +4,9 @@ import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
 // import Dimensions from 'react-dimensions';
 
+import 'typeface-rubik';
+import 'typeface-roboto-mono';
+
 import 'prismjs/themes/prism-okaidia.css';
 // import 'prismjs/themes/prism.css';
 
@@ -96,10 +99,10 @@ const Layout = ({ children, title }) => {
       <Favicon />
 
       <Helmet>
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Rubik:700"
           rel="stylesheet"
-        />
+        /> */}
         <title>
           {me.fancy}
           {title ? ' - ' + title : ''}
