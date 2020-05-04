@@ -1,0 +1,129 @@
+---
+title: 'Quick Intro to CSS Keyframes & Animations'
+date: '2020-05-04'
+publish: true
+excerpt: 'Make cool effects with CSS Keyframes and Animations'
+---
+
+import XA from 'components/ExternalAnchor.js';
+
+<section class="blog-section">
+
+Some disclaimers before you start reading more.
+
+I am not a CSS expert. Definitely not in animations or keyframes.
+That being said, I was up at 2am last night animating the pretty text-shadow property that you see on the title of my website and I really want to share what I learned.
+
+### Lesson 1
+
+CSS Keyframes are really frickin' cool 🎉
+
+Now you're probably wondering "Mani. What ***are*** CSS Keyframes.".
+
+Keyframes are a kind of CSS @ rule (like @media, @font-face) which allows you to define styles for specific points in your animation sequence. So rather than just saying that you want to transition from one style to another, you can specify exactly what the style should look like while it's undergoing the transition.
+
+This is especially useful when you're trying to change the color of the text-shadow property for an element and you want to pick the colors that the animation goes through.
+
+### Lesson 2
+
+So how exactly do we set these **waypoints**?
+We define a keyframe with `@keyframes {name}`. This named rule can then be used in an animation. Each @keyframes rule contains a list of selectors, which specify the percentage along the animation and a block for defining the style at that percentage.
+
+
+The code snippet below is the most basic kind of keyframe where the from block is equivalent to 0% of animation progress and to is 100%.
+
+```css
+@keyframes rainbow {
+    from {
+        ...
+    }
+    to {
+        ...
+    }
+}
+```
+
+We can also specify an arbitrary number of waypoints not inluding 0% and 100%
+
+```css
+@keyframes rainbow {
+    10% { ... }
+    20% { ... }
+    40% { ... }
+    75% { ... }
+    96% { ... }
+}
+```
+
+If the keyframe doesn't include the start & end waypoints for the animation (`0% / from` and `100%/ to`), the element will be animated from it's initial state through the waypoints back to it's initial state.
+
+That's enough theory. Let's see some examples!!
+
+The CodePen embed below shows an example of HTML that mimics the title of my website.
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="Keyframe #1" src="https://codepen.io/itsrainingmani/embed/preview/GRpyKXd?height=265&theme-id=dark&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true" loading="lazy">
+  See the Pen <a href='https://codepen.io/itsrainingmani/pen/GRpyKXd'>Keyframe #1</a> by Manikandan Sundararajan
+  (<a href='https://codepen.io/itsrainingmani'>@itsrainingmani</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Now we're going to add a keyframe that changes the color of the text-shadow every 20% of animation progress.
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="Keyframe #2" src="https://codepen.io/itsrainingmani/embed/dyYJyKQ?height=265&theme-id=dark&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true" loading="lazy">
+  See the Pen <a href='https://codepen.io/itsrainingmani/pen/dyYJyKQ'>Keyframe #2</a> by Manikandan Sundararajan
+  (<a href='https://codepen.io/itsrainingmani'>@itsrainingmani</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Hmmmm.. That didn't really change anything. That's because Keyframes by themselves are just style descriptors. We need to use them in an animation to have an effect.
+
+Which brings us to:
+
+### Lesson 3
+
+CSS Animations are also really frickin' cool 🎉. They make this whole enterprise go round & round.
+
+An animation has two parts - a description of the animation (duration, transition function etc.) and the keyframes that define the actual state of the animation at different points.
+
+Let's look at the sub-properties of an animation:
+
+* animation-name
+* animation-duration
+* animation-timing-function
+* animation-delay
+* animation-iteration-count
+* animation-direction
+* animation-fill-mode
+* animation-play-state
+
+We can encapsulate all these properties into one using the `animation` shorthand.
+
+For this post, we are going to configure a very simple animation.
+It is going to look like this - 
+
+`animation: rainbow 4s ease 2s infinite reverse;`
+
+Let's break this down into invidual sub-properties:
+
+* animation-name: `rainbow` (The keyframe that we created in the last section)
+* animation-duration: `4s` (Animation will last for 4 seconds)
+* animation-timing-function: `ease` (Animation will use the ease timing function to transition between keyframes)
+* animation-delay: `2s` (Animation will wait for 2s after element is loaded to begin)
+* animation-iteration-count: `infinite` (Animation will loop forever)
+* animation-direction: `reverse` (Keyframe waypoints will be applied in reverse)
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="Animation #1" src="https://codepen.io/itsrainingmani/embed/ExVoVXw?height=265&theme-id=dark&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/itsrainingmani/pen/ExVoVXw'>Animation #1</a> by Manikandan Sundararajan
+  (<a href='https://codepen.io/itsrainingmani'>@itsrainingmani</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Et Voila 🥳🥳🥳! 
+
+We have now successfully animated an element using keyframes!
+
+Please feel free to play around with the Code Pens and explore the cool world of CSS Animations!
+
+### Resources
+
+* <XA href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">Keyframes</XA>
+* <XA href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations">Using CSS Animations</XA>
+
+</section>
