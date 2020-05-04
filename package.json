@@ -42,6 +42,7 @@
     "rehype-react": "^3.1.0",
     "styled-components": "^4.1.3",
     "styled-normalize": "^8.0.6",
+    "typeface-fira-code": "^1.1.4",
     "typeface-roboto-mono": "0.0.75",
     "typeface-rubik": "0.0.72"
   },
