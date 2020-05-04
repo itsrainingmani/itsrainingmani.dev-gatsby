@@ -27,12 +27,25 @@ const StyledImg = styled.img`
 `;
 
 const MainFace = () => {
+  const randColors = [
+    '#ff124f', // Bright red
+    '#ff00a0', // Bright pink
+    '#fe75fe', // Light pink
+    '#1afe49', // Bright Green
+    '#73fffe' // Light corral
+  ];
+  const curColor = randColors[Math.floor(Math.random() * randColors.length)];
   return (
     <div style={{ textAlign: 'center' }}>
       <StyledImg src={face} alt="My face" />
-      <p>
+      <h3>
         <b>Manikandan Sundararajan</b>
-      </p>
+      </h3>
+      <h4
+        style={{ textShadow: '2px 2px 0px ' + curColor, fontStyle: 'italic' }}
+      >
+        Software Dev | Keyboard Nerd
+      </h4>
       <blockquote style={{ fontStyle: 'italic' }}>
         "Some one once told me that I did a good job. <br />
         I've been chasing that high ever since"
