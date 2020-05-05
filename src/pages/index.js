@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
 
 const StyledImg = styled.img`
   height: 'auto';
-  width: 20rem;
+  width: 17rem;
   border-radius: 30%;
 
   @media (max-width: 520px) {
@@ -42,9 +42,9 @@ const StyledH2 = styled.h2`
   text-shadow: 2px 3px 0px #ff0000;
 `;
 
-const BlogPageInner = props => {
+const BlogPageInner = ({ data }) => {
   try {
-    const posts = props.data.allMdx ? props.data.allMdx.edges : [];
+    const posts = data.allMdx ? data.allMdx.edges : [];
     return <BlogListing posts={posts} />;
   } catch (e) {
     return <h2>Unable to find any blog posts.</h2>;
@@ -55,9 +55,7 @@ const MainFace = () => {
   return (
     <div style={{ textAlign: 'center' }}>
       <StyledImg src={face} alt="My face" />
-      <h3>
-        <b>Manikandan Sundararajan</b>
-      </h3>
+      <h3 style={{ fontStyle: 'italic' }}>Manikandan Sundararajan</h3>
       <StyledH4>Software Dev | Keyboard Nerd</StyledH4>
       <blockquote style={{ fontStyle: 'italic' }}>
         "Some one once told me that I did a good job. <br />
