@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
 import Layout, { rainbowAnimation } from './../components/Layout';
+import BlogListing from './../components/BlogListing';
+
 import face from './../../static/face.png';
 
 const StyledContainer = styled.div`
@@ -32,6 +35,22 @@ const StyledH4 = styled.h4`
   text-shadow: 2px 2px 0px #ff0000;
 `;
 
+const StyledH2 = styled.h2`
+  margin-top: 4rem;
+  animation: ${rainbowAnimation(3)} 4s ease 2s infinite reverse;
+  font-style: italic;
+  text-shadow: 2px 3px 0px #ff0000;
+`;
+
+const BlogPageInner = props => {
+  try {
+    const posts = props.data.allMdx ? props.data.allMdx.edges : [];
+    return <BlogListing posts={posts} />;
+  } catch (e) {
+    return <h2>Unable to find any blog posts.</h2>;
+  }
+};
+
 const MainFace = () => {
   return (
     <div style={{ textAlign: 'center' }}>
@@ -48,12 +67,38 @@ const MainFace = () => {
   );
 };
 
-const Index = () => (
+const Index = props => (
   <Layout>
     <StyledContainer>
       <MainFace />
+      <StyledH2>Posts</StyledH2>
+      <BlogPageInner {...props} />
     </StyledContainer>
   </Layout>
 );
 
 export default Index;
+
+export const query = graphql`
+  query {
+    allMdx(
+      filter: {
+        frontmatter: { publish: { eq: true } }
+        fields: { type: { eq: "post" } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
