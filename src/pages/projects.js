@@ -7,10 +7,22 @@ import ProjectListing from './../components/ProjectListing';
 const ProjectsPageInner = props => {
   try {
     const allProjects = props.data.allMdx ? props.data.allMdx.edges : [];
+    const randColors = [
+      '#ff124f', // Bright red
+      '#ff00a0', // Bright pink
+      '#fe75fe', // Light pink
+      '#1afe49', // Bright Green
+      '#73fffe' // Light corral
+    ];
+    const curColor = randColors[Math.floor(Math.random() * randColors.length)];
 
     return (
       <div>
-        <h1>Projects</h1>
+        <h1
+          style={{ textShadow: '2px 4px 0px ' + curColor, fontStyle: 'italic' }}
+        >
+          Projects
+        </h1>
         <ProjectListing projects={allProjects} />
       </div>
     );
