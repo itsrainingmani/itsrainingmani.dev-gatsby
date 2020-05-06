@@ -8,6 +8,14 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
+  :root {
+    --cyb-br-red: #ff124f;
+    --cyb-br-pink: #ff00a0;
+    --cyb-li-pink: #fe75fe;
+    --cyb-br-green: #1afe49;
+    --cyb-li-coral: #73fffe;
+  }
+
   html {
     box-sizing: border-box;
     font-size: 62.5%;
