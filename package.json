@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@mdx-js/mdx": "^0.20.3",
-    "@mdx-js/tag": "^0.18.0",
+    "@mdx-js/mdx": "^1.6.1",
+    "@mdx-js/react": "^1.6.1",
     "ajv": "^6.12.2",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.21.15",
