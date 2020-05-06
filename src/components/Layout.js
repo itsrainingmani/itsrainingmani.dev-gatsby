@@ -61,16 +61,16 @@ export const rainbowAnimation = y => keyframes`
     text-shadow: 2px ${y}px 0px #ff0000;
   }
   20% {
-    text-shadow: 2px ${y}px 0px #ff00a0;
+    text-shadow: 2px ${y}px 0px var(--cyb-br-pink);
   }
   40% {
-    text-shadow: 2px ${y}px 0px #fe75fe;
+    text-shadow: 2px ${y}px 0px var(--cyb-li-pink);
   }
   60% {
-    text-shadow: 2px ${y}px 0px #1afe49;
+    text-shadow: 2px ${y}px 0px var(--cyb-br-green);
   }
   80% {
-    text-shadow: 2px ${y}px 0px #73fffe;
+    text-shadow: 2px ${y}px 0px var(--cyb-li-coral);
   }
   100% {
     text-shadow: 2px ${y}px 0px #ff0000;
