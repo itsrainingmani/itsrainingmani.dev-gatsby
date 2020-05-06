@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
-import { MDXRenderer } from 'gatsby-mdx';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout, { me } from './../components/Layout';
 
@@ -16,7 +16,7 @@ const StyledPostDate = styled.time`
 `;
 
 const PostTemplate = ({ data }) => {
-  const { frontmatter, code } = data.mdx;
+  const { frontmatter, body } = data.mdx;
   const randColors = [
     '#ff124f', // Bright red
     '#ff00a0', // Bright pink
@@ -52,7 +52,7 @@ const PostTemplate = ({ data }) => {
       >
         {frontmatter.title}
       </h1>
-      <MDXRenderer>{code.body}</MDXRenderer>
+      <MDXRenderer>{body}</MDXRenderer>
       <StyledPostDate>{frontmatter.date}</StyledPostDate>
     </Layout>
   );
@@ -68,9 +68,7 @@ export const query = graphql`
         date
         excerpt
       }
-      code {
-        body
-      }
+      body
     }
   }
 `;

@@ -1,14 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout, { me } from './../components/Layout';
 import TextPostBody from './../components/TextPostBody';
 import ProjectLinks from './../components/ProjectLinks';
 
 const ProjectTemplate = ({ data }) => {
-  const { frontmatter, code } = data.mdx;
+  const { frontmatter, body } = data.mdx;
 
   const randColors = [
     '#ff124f', // Bright red
@@ -40,7 +40,7 @@ const ProjectTemplate = ({ data }) => {
         lang={frontmatter.lang}
       />
       <TextPostBody>
-        <MDXRenderer>{code.body}</MDXRenderer>
+        <MDXRenderer>{body}</MDXRenderer>
       </TextPostBody>
     </Layout>
   );
@@ -51,9 +51,7 @@ export default ProjectTemplate;
 export const query = graphql`
   query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      code {
-        body
-      }
+      body
       frontmatter {
         title
         link
