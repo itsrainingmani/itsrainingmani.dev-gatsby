@@ -31,7 +31,7 @@ const PostTemplate = ({ data }) => {
       {frontmatter.title && (
         <Helmet>
           <title>
-            {me.name} | {frontmatter.title}
+            {me.fancy} | {frontmatter.title}
           </title>
         </Helmet>
       )}

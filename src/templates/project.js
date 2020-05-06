@@ -15,7 +15,7 @@ const ProjectTemplate = ({ data }) => {
     '#ff00a0', // Bright pink
     '#fe75fe', // Light pink
     '#1afe49', // Bright Green
-    '#73fffe'  // Light corral
+    '#73fffe' // Light corral
   ];
   const curColor = randColors[Math.floor(Math.random() * randColors.length)];
 
@@ -24,7 +24,7 @@ const ProjectTemplate = ({ data }) => {
       {frontmatter.title && (
         <Helmet>
           <title>
-            {me.name} | {frontmatter.title}
+            {me.fancy} | {frontmatter.title}
           </title>
         </Helmet>
       )}
