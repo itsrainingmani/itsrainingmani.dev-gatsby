@@ -14,6 +14,18 @@ const GlobalStyle = createGlobalStyle`
     --cyb-li-pink: #fe75fe;
     --cyb-br-green: #1afe49;
     --cyb-li-coral: #73fffe;
+
+    --pastel-purple: #d7a6f9;
+    --pastel-yellow: #F9DB91;
+    --pastel-maeve: #c9c4fa;
+    --pastel-li-blue: #9fe9ff;
+    --pastel-blue: #aad6fb;
+    --pastel-li-orange: #f8d3c9;
+    --pastel-orange: #fba058;
+    --pastel-violet: #c7bff0;
+    --pastel-green: #6cd8a9;
+    --pastel-turq: #65cad2;
+    --pastel-pink: #f2a7bb;
   }
 
   html {
