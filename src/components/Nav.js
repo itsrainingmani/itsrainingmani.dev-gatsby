@@ -97,6 +97,11 @@ const Nav = () => {
           </NavItem>
         </ListElement>
         <ListElement>
+          <NavItem to="/learning/" activeClassName={activeClassName}>
+            learning
+          </NavItem>
+        </ListElement>
+        <ListElement>
           <NavItem to="/about/" activeClassName={activeClassName}>
             about
           </NavItem>
