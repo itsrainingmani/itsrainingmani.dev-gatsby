@@ -65,6 +65,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'learning',
+        path: `${__dirname}/src/content/learning`
+      }
+    },
+    {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: '#0000ff'
