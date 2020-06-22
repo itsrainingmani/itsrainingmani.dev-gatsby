@@ -54,7 +54,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 						name: 'slug',
 						value: `/${sourceInstanceName}${slug}`
 					});
-					console.log(`/${sourceInstanceName}${slug}`);
 
 					createNodeField({
 						node,
@@ -66,7 +65,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 					if (dirSplit1.length > 0 && dirSplit1[0] === '') {
 						dirSplit1.shift(); // because path starts with /, '' is always at position 0
 					}
-					console.log(dirSplit1);
+
 					if (dirSplit1.length) {
 						createNodeField({
 							node,
